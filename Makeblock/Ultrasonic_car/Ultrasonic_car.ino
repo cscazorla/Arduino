@@ -9,14 +9,19 @@
 **************************************************************************/
 #include <Makeblock.h>
 #include <Arduino.h>
+
+// If using linux we need to use MeOrion.h 
+// instead of Makebloc.h and Arduino.h
+#include "MeOrion.h"
+
 #include <SoftwareSerial.h>
 #include <Wire.h>
 
 MeDCMotor MotorL(M1);  
 MeDCMotor MotorR(M2);
 MeUltrasonicSensor UltrasonicSensor(PORT_3);
-int moveSpeed = 190;
-int turnSpeed = 200;
+int moveSpeed = 190; /* value: between -255 and 255. */
+int turnSpeed = 200; /* value: between -255 and 255. */
 int distance=0;
 int randnum = 0;
 boolean leftflag,rightflag;
